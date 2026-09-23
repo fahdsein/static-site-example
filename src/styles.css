@@ -1,0 +1,50 @@
+:root {
+  color-scheme: dark;
+  --bg: #07111f;
+  --card: #0e2033;
+  --text: #eef8ff;
+  --muted: #8ca5b9;
+  --line: #24445e;
+  --accent: #39d8ad;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+:root.light {
+  color-scheme: light;
+  --bg: #edf5f9;
+  --card: #fff;
+  --text: #10283b;
+  --muted: #667d8f;
+  --line: #ccdde7;
+  --accent: #087f5b;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); min-height: 100vh; }
+header, main, footer { width: min(1120px, calc(100% - 32px)); margin: auto; }
+header { display: flex; justify-content: space-between; align-items: center; padding: 40px 0 24px; }
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin: 0 0 4px; }
+p { color: var(--accent); font-size: .72rem; font-weight: 900; letter-spacing: .14em; margin: 0 0 8px; }
+span, small, footer { color: var(--muted); }
+button, input, select { font: inherit; color: var(--text); background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 11px 14px; }
+button { cursor: pointer; font-weight: 700; margin-left: 8px; }
+.summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 14px; }
+.summary article, .city, .toolbar { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+.summary small { display: block; margin-bottom: 8px; }
+.summary strong { font-size: 1.7rem; }
+.toolbar { display: flex; gap: 10px; margin-bottom: 14px; }
+.toolbar input { flex: 1; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.city h2 { margin: 0 0 5px; font-size: 1.05rem; }
+.clock { font-variant-numeric: tabular-nums; font-size: 1.8rem; font-weight: 800; margin: 18px 0 8px; }
+.status { font-size: .74rem; font-weight: 900; }
+.open { color: var(--accent); }
+.closed { color: #ff8787; }
+footer { text-align: center; padding: 30px 0; font-size: .78rem; }
+
+@media (max-width: 700px) {
+  header { align-items: flex-start; gap: 18px; flex-direction: column; }
+  .summary, .grid { grid-template-columns: 1fr; }
+  .toolbar { flex-direction: column; }
+  .actions button:first-child { margin-left: 0; }
+}
